@@ -1,0 +1,384 @@
+[
+  {
+    "name": "ContactForm",
+    "type": "form",
+    "description": "Formulaire de contact standard avec validation des champs email et message",
+    "props": {
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "label": "Nom complet",
+          "required": true,
+          "placeholder": "Votre nom"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "label": "Email",
+          "required": true,
+          "placeholder": "votre@email.com"
+        },
+        {
+          "name": "subject",
+          "type": "text",
+          "label": "Sujet",
+          "required": true,
+          "placeholder": "Sujet de votre message"
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "label": "Message",
+          "required": true,
+          "placeholder": "Votre message...",
+          "rows": 5
+        }
+      ],
+      "submitButton": {
+        "text": "Envoyer",
+        "variant": "primary"
+      },
+      "validation": true,
+      "successMessage": "Votre message a été envoyé avec succès!"
+    },
+    "variants": ["simple", "detailed", "inline"],
+    "category": "communication",
+    "tags": ["contact", "form", "email", "support"]
+  },
+  {
+    "name": "BookingForm",
+    "type": "form",
+    "description": "Formulaire de réservation avec sélection de date, heure et nombre de personnes",
+    "props": {
+      "fields": [
+        {
+          "name": "date",
+          "type": "date",
+          "label": "Date de réservation",
+          "required": true,
+          "min": "today"
+        },
+        {
+          "name": "time",
+          "type": "time",
+          "label": "Heure",
+          "required": true,
+          "options": ["12:00", "12:30", "13:00", "13:30", "19:00", "19:30", "20:00", "20:30"]
+        },
+        {
+          "name": "guests",
+          "type": "number",
+          "label": "Nombre de personnes",
+          "required": true,
+          "min": 1,
+          "max": 12
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "label": "Téléphone",
+          "required": true,
+          "placeholder": "06 12 34 56 78"
+        },
+        {
+          "name": "specialRequests",
+          "type": "textarea",
+          "label": "Demandes spéciales",
+          "required": false,
+          "placeholder": "Allergies, préférences..."
+        }
+      ],
+      "submitButton": {
+        "text": "Réserver",
+        "variant": "success"
+      },
+      "validation": true
+    },
+    "variants": ["restaurant", "hotel", "event"],
+    "category": "booking",
+    "tags": ["reservation", "booking", "date", "time"]
+  },
+  {
+    "name": "ProductCard",
+    "type": "card",
+    "description": "Carte produit avec image, titre, description, prix et bouton d'achat",
+    "props": {
+      "image": {
+        "src": "",
+        "alt": "",
+        "aspectRatio": "16:9"
+      },
+      "title": "",
+      "description": "",
+      "price": {
+        "amount": 0,
+        "currency": "EUR",
+        "originalPrice": null
+      },
+      "badge": {
+        "text": "",
+        "variant": "info"
+      },
+      "actions": [
+        {
+          "text": "Ajouter au panier",
+          "variant": "primary",
+          "action": "addToCart"
+        },
+        {
+          "text": "Voir détails",
+          "variant": "outline",
+          "action": "viewDetails"
+        }
+      ],
+      "rating": {
+        "value": 0,
+        "max": 5,
+        "showReviews": true
+      }
+    },
+    "variants": ["compact", "detailed", "list"],
+    "category": "ecommerce",
+    "tags": ["product", "card", "ecommerce", "price"]
+  },
+  {
+    "name": "SearchBar",
+    "type": "input",
+    "description": "Barre de recherche avec suggestions et filtres",
+    "props": {
+      "placeholder": "Rechercher...",
+      "showSuggestions": true,
+      "showFilters": false,
+      "filters": [
+        {
+          "name": "category",
+          "label": "Catégorie",
+          "type": "select",
+          "options": []
+        },
+        {
+          "name": "priceRange",
+          "label": "Prix",
+          "type": "range",
+          "min": 0,
+          "max": 1000
+        }
+      ],
+      "searchButton": {
+        "text": "Rechercher",
+        "icon": "search"
+      },
+      "recentSearches": true
+    },
+    "variants": ["simple", "advanced", "inline"],
+    "category": "navigation",
+    "tags": ["search", "filter", "navigation"]
+  },
+  {
+    "name": "NavigationMenu",
+    "type": "navigation",
+    "description": "Menu de navigation principal avec sous-menus",
+    "props": {
+      "items": [
+        {
+          "label": "Accueil",
+          "href": "/",
+          "icon": "home"
+        },
+        {
+          "label": "Produits",
+          "href": "/products",
+          "children": [
+            {
+              "label": "Nouveautés",
+              "href": "/products/new"
+            },
+            {
+              "label": "Promotions",
+              "href": "/products/sale"
+            }
+          ]
+        },
+        {
+          "label": "Contact",
+          "href": "/contact",
+          "icon": "mail"
+        }
+      ],
+      "logo": {
+        "src": "",
+        "alt": "Logo",
+        "href": "/"
+      },
+      "mobileBreakpoint": "md",
+      "sticky": true
+    },
+    "variants": ["horizontal", "vertical", "sidebar"],
+    "category": "navigation",
+    "tags": ["menu", "navigation", "header"]
+  },
+  {
+    "name": "DataTable",
+    "type": "table",
+    "description": "Tableau de données avec tri, pagination et filtres",
+    "props": {
+      "columns": [
+        {
+          "key": "id",
+          "label": "ID",
+          "sortable": true,
+          "width": "80px"
+        },
+        {
+          "key": "name",
+          "label": "Nom",
+          "sortable": true,
+          "searchable": true
+        },
+        {
+          "key": "email",
+          "label": "Email",
+          "sortable": true,
+          "searchable": true
+        },
+        {
+          "key": "actions",
+          "label": "Actions",
+          "sortable": false,
+          "width": "120px"
+        }
+      ],
+      "pagination": {
+        "enabled": true,
+        "pageSize": 10,
+        "showSizeSelector": true
+      },
+      "sorting": {
+        "enabled": true,
+        "defaultSort": "name",
+        "defaultOrder": "asc"
+      },
+      "filtering": {
+        "enabled": true,
+        "globalSearch": true
+      },
+      "selection": {
+        "enabled": false,
+        "multiple": true
+      }
+    },
+    "variants": ["simple", "advanced", "compact"],
+    "category": "data",
+    "tags": ["table", "data", "pagination", "sort"]
+  },
+  {
+    "name": "Modal",
+    "type": "overlay",
+    "description": "Fenêtre modale avec titre, contenu et actions",
+    "props": {
+      "title": "",
+      "size": "md",
+      "closable": true,
+      "backdrop": "blur",
+      "actions": [
+        {
+          "text": "Annuler",
+          "variant": "outline",
+          "action": "close"
+        },
+        {
+          "text": "Confirmer",
+          "variant": "primary",
+          "action": "confirm"
+        }
+      ],
+      "animation": "fade",
+      "persistent": false
+    },
+    "variants": ["dialog", "fullscreen", "drawer"],
+    "category": "overlay",
+    "tags": ["modal", "dialog", "popup"]
+  },
+  {
+    "name": "Chart",
+    "type": "visualization",
+    "description": "Graphique interactif pour visualiser des données",
+    "props": {
+      "type": "line",
+      "data": {
+        "labels": [],
+        "datasets": []
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "legend": {
+          "display": true,
+          "position": "top"
+        },
+        "scales": {
+          "x": {
+            "display": true
+          },
+          "y": {
+            "display": true
+          }
+        }
+      },
+      "height": "400px",
+      "interactive": true
+    },
+    "variants": ["line", "bar", "pie", "doughnut", "area"],
+    "category": "visualization",
+    "tags": ["chart", "graph", "data", "analytics"]
+  },
+  {
+    "name": "FileUpload",
+    "type": "input",
+    "description": "Composant d'upload de fichiers avec drag & drop",
+    "props": {
+      "accept": "image/*",
+      "multiple": false,
+      "maxSize": "5MB",
+      "dragAndDrop": true,
+      "preview": true,
+      "progress": true,
+      "validation": {
+        "required": false,
+        "fileTypes": ["jpg", "jpeg", "png", "gif"],
+        "maxFiles": 5
+      },
+      "uploadText": "Glissez vos fichiers ici ou cliquez pour sélectionner",
+      "uploadingText": "Upload en cours...",
+      "successText": "Fichier uploadé avec succès!"
+    },
+    "variants": ["simple", "advanced", "gallery"],
+    "category": "input",
+    "tags": ["upload", "file", "image", "drag-drop"]
+  },
+  {
+    "name": "Notification",
+    "type": "feedback",
+    "description": "Notification toast pour afficher des messages à l'utilisateur",
+    "props": {
+      "type": "info",
+      "title": "",
+      "message": "",
+      "duration": 5000,
+      "closable": true,
+      "position": "top-right",
+      "icon": true,
+      "actions": [
+        {
+          "text": "Action",
+          "action": "custom"
+        }
+      ],
+      "persistent": false
+    },
+    "variants": ["success", "error", "warning", "info"],
+    "category": "feedback",
+    "tags": ["notification", "toast", "alert", "message"]
+  }
+]

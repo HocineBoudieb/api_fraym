@@ -1,0 +1,283 @@
+[
+  {
+    "name": "HeaderContentFooter",
+    "description": "Layout classique avec header en haut, contenu principal au centre et footer en bas",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "header",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 10
+        },
+        "unit": "percentage",
+        "description": "Zone header pour navigation et logo"
+      },
+      {
+        "id": "main_content",
+        "position": {
+          "x": 0,
+          "y": 10,
+          "width": 100,
+          "height": 80
+        },
+        "unit": "percentage",
+        "description": "Zone de contenu principal"
+      },
+      {
+        "id": "footer",
+        "position": {
+          "x": 0,
+          "y": 90,
+          "width": 100,
+          "height": 10
+        },
+        "unit": "percentage",
+        "description": "Zone footer pour liens et informations"
+      }
+    ],
+    "category": "basic",
+    "tags": ["header", "footer", "classic", "simple"]
+  },
+  {
+    "name": "SidebarContent",
+    "description": "Layout avec sidebar à gauche et contenu principal à droite",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "sidebar",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 25,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Sidebar pour navigation ou filtres"
+      },
+      {
+        "id": "main_content",
+        "position": {
+          "x": 25,
+          "y": 0,
+          "width": 75,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Zone de contenu principal"
+      }
+    ],
+    "category": "sidebar",
+    "tags": ["sidebar", "navigation", "dashboard"]
+  },
+  {
+    "name": "TwoColumnEqual",
+    "description": "Layout à deux colonnes égales pour comparaisons ou contenu parallèle",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "left_column",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 50,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Colonne gauche"
+      },
+      {
+        "id": "right_column",
+        "position": {
+          "x": 50,
+          "y": 0,
+          "width": 50,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Colonne droite"
+      }
+    ],
+    "category": "columns",
+    "tags": ["two-column", "equal", "comparison"]
+  },
+  {
+    "name": "ThreeColumnGrid",
+    "description": "Layout à trois colonnes pour affichage de cartes ou produits",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "left_column",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 33.33,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Première colonne"
+      },
+      {
+        "id": "center_column",
+        "position": {
+          "x": 33.33,
+          "y": 0,
+          "width": 33.33,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Colonne centrale"
+      },
+      {
+        "id": "right_column",
+        "position": {
+          "x": 66.66,
+          "y": 0,
+          "width": 33.34,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Troisième colonne"
+      }
+    ],
+    "category": "grid",
+    "tags": ["three-column", "grid", "products", "cards"]
+  },
+  {
+    "name": "CenteredCard",
+    "description": "Layout avec un élément centré au milieu de la page",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "centered_content",
+        "position": {
+          "x": 25,
+          "y": 25,
+          "width": 50,
+          "height": 50
+        },
+        "unit": "percentage",
+        "description": "Contenu centré au milieu de la page"
+      }
+    ],
+    "category": "centered",
+    "tags": ["centered", "card", "modal", "focus"]
+  },
+  {
+    "name": "HeroSection",
+    "description": "Layout avec une grande section hero en haut et contenu en dessous",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "hero_section",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 60
+        },
+        "unit": "percentage",
+        "description": "Section hero avec titre et call-to-action"
+      },
+      {
+        "id": "content_section",
+        "position": {
+          "x": 0,
+          "y": 60,
+          "width": 100,
+          "height": 40
+        },
+        "unit": "percentage",
+        "description": "Section de contenu principal"
+      }
+    ],
+    "category": "landing",
+    "tags": ["hero", "landing", "marketing", "cta"]
+  },
+  {
+    "name": "DashboardGrid",
+    "description": "Layout en grille 2x2 pour tableaux de bord",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "top_left",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 50,
+          "height": 50
+        },
+        "unit": "percentage",
+        "description": "Widget en haut à gauche"
+      },
+      {
+        "id": "top_right",
+        "position": {
+          "x": 50,
+          "y": 0,
+          "width": 50,
+          "height": 50
+        },
+        "unit": "percentage",
+        "description": "Widget en haut à droite"
+      },
+      {
+        "id": "bottom_left",
+        "position": {
+          "x": 0,
+          "y": 50,
+          "width": 50,
+          "height": 50
+        },
+        "unit": "percentage",
+        "description": "Widget en bas à gauche"
+      },
+      {
+        "id": "bottom_right",
+        "position": {
+          "x": 50,
+          "y": 50,
+          "width": 50,
+          "height": 50
+        },
+        "unit": "percentage",
+        "description": "Widget en bas à droite"
+      }
+    ],
+    "category": "dashboard",
+    "tags": ["dashboard", "grid", "widgets", "analytics"]
+  },
+  {
+    "name": "FormWithSidebar",
+    "description": "Layout avec formulaire principal et informations dans une sidebar",
+    "type": "page_layout",
+    "components": [
+      {
+        "id": "form_area",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 70,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Zone principale pour le formulaire"
+      },
+      {
+        "id": "info_sidebar",
+        "position": {
+          "x": 70,
+          "y": 0,
+          "width": 30,
+          "height": 100
+        },
+        "unit": "percentage",
+        "description": "Sidebar avec informations ou aide"
+      }
+    ],
+    "category": "form",
+    "tags": ["form", "sidebar", "help", "information"]
+  }
+]

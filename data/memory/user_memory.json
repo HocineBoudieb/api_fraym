@@ -1,0 +1,190 @@
+{
+  "users": {
+    "user_123": {
+      "user_id": "user_123",
+      "preferences": {
+        "language": "fr",
+        "theme": "dark",
+        "notifications": true,
+        "preferred_categories": ["electronics", "books"],
+        "budget_range": "100-500",
+        "delivery_preference": "express"
+      },
+      "context_summary": "Utilisateur intéressé par l'électronique et les livres, préfère les livraisons rapides",
+      "interactions": [
+        {
+          "timestamp": "2024-01-15T10:30:00Z",
+          "session_id": "session_001",
+          "user_input": "Je cherche un smartphone pas trop cher",
+          "intent": "product_search",
+          "entities": {
+            "product_type": "smartphone",
+            "price_constraint": "pas trop cher"
+          },
+          "context": {
+            "category": "electronics",
+            "budget_conscious": true
+          },
+          "ui_generated": {
+            "type": "product_search_form",
+            "components": ["price_filter", "brand_selector", "feature_checklist"]
+          },
+          "relevance_score": 0.9
+        },
+        {
+          "timestamp": "2024-01-15T10:35:00Z",
+          "session_id": "session_001",
+          "user_input": "Plutôt Android, avec une bonne autonomie",
+          "intent": "refine_search",
+          "entities": {
+            "os_preference": "Android",
+            "feature_priority": "autonomie"
+          },
+          "context": {
+            "previous_search": "smartphone",
+            "refined_criteria": ["Android", "battery_life"]
+          },
+          "ui_generated": {
+            "type": "filtered_product_list",
+            "components": ["product_cards", "comparison_tool"]
+          },
+          "relevance_score": 0.95
+        }
+      ],
+      "activity_level": 0.8,
+      "last_active": "2024-01-15T10:35:00Z",
+      "created_at": "2024-01-10T09:00:00Z"
+    },
+    "user_456": {
+      "user_id": "user_456",
+      "preferences": {
+        "language": "fr",
+        "theme": "light",
+        "notifications": false,
+        "preferred_categories": ["fashion", "beauty"],
+        "size_preferences": {
+          "clothing": "M",
+          "shoes": "38"
+        },
+        "brand_preferences": ["Zara", "H&M"]
+      },
+      "context_summary": "Utilisatrice mode et beauté, taille M, pointure 38",
+      "interactions": [
+        {
+          "timestamp": "2024-01-14T14:20:00Z",
+          "session_id": "session_002",
+          "user_input": "Je voudrais une robe pour un mariage",
+          "intent": "product_search",
+          "entities": {
+            "product_type": "robe",
+            "occasion": "mariage"
+          },
+          "context": {
+            "category": "fashion",
+            "event_type": "formal",
+            "gender": "female"
+          },
+          "ui_generated": {
+            "type": "occasion_dress_finder",
+            "components": ["style_selector", "color_picker", "size_guide"]
+          },
+          "relevance_score": 0.85
+        },
+        {
+          "timestamp": "2024-01-14T14:25:00Z",
+          "session_id": "session_002",
+          "user_input": "Quelque chose d'élégant mais pas trop formel",
+          "intent": "refine_style",
+          "entities": {
+            "style_preference": "élégant",
+            "formality_level": "semi-formal"
+          },
+          "context": {
+            "previous_search": "robe mariage",
+            "style_refined": "elegant_casual"
+          },
+          "ui_generated": {
+            "type": "style_filtered_results",
+            "components": ["product_grid", "style_tags", "outfit_suggestions"]
+          },
+          "relevance_score": 0.9
+        }
+      ],
+      "activity_level": 0.6,
+      "last_active": "2024-01-14T14:25:00Z",
+      "created_at": "2024-01-12T16:30:00Z"
+    },
+    "user_789": {
+      "user_id": "user_789",
+      "preferences": {
+        "language": "fr",
+        "theme": "auto",
+        "notifications": true,
+        "preferred_categories": ["home", "garden"],
+        "home_style": "modern",
+        "budget_range": "50-200"
+      },
+      "context_summary": "Utilisateur intéressé par la décoration moderne et le jardinage",
+      "interactions": [
+        {
+          "timestamp": "2024-01-13T09:15:00Z",
+          "session_id": "session_003",
+          "user_input": "Je veux réserver une table pour ce soir",
+          "intent": "booking_request",
+          "entities": {
+            "service_type": "restaurant",
+            "date": "ce soir",
+            "time_preference": "evening"
+          },
+          "context": {
+            "urgency": "same_day",
+            "service_category": "dining"
+          },
+          "ui_generated": {
+            "type": "restaurant_booking_form",
+            "components": ["date_picker", "time_selector", "party_size", "special_requests"]
+          },
+          "relevance_score": 0.95
+        },
+        {
+          "timestamp": "2024-01-13T09:18:00Z",
+          "session_id": "session_003",
+          "user_input": "Pour 4 personnes vers 20h",
+          "intent": "booking_details",
+          "entities": {
+            "party_size": "4",
+            "preferred_time": "20h"
+          },
+          "context": {
+            "booking_in_progress": true,
+            "details_provided": ["party_size", "time"]
+          },
+          "ui_generated": {
+            "type": "booking_confirmation",
+            "components": ["reservation_summary", "contact_form", "confirmation_button"]
+          },
+          "relevance_score": 0.98
+        }
+      ],
+      "activity_level": 0.7,
+      "last_active": "2024-01-13T09:18:00Z",
+      "created_at": "2024-01-08T11:45:00Z"
+    }
+  },
+  "global_stats": {
+    "total_users": 3,
+    "total_interactions": 5,
+    "most_common_intents": [
+      "product_search",
+      "booking_request",
+      "refine_search"
+    ],
+    "most_active_categories": [
+      "electronics",
+      "fashion",
+      "dining"
+    ],
+    "average_session_length": 2.5,
+    "last_updated": "2024-01-15T10:35:00Z"
+  }
+}

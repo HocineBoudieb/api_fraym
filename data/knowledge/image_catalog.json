@@ -1,0 +1,88 @@
+{
+  "images": [
+    {
+      "id": "smartphone_iphone15",
+      "url": "/images/products/iphone15-pro.svg",
+      "alt": "iPhone 15 Pro en titane naturel",
+      "description": "iPhone 15 Pro avec écran Super Retina XDR 6.1 pouces, processeur A17 Pro, triple caméra 48MP",
+      "keywords": ["iphone", "smartphone", "apple", "téléphone", "mobile", "A17", "caméra", "titane"]
+    },
+    {
+      "id": "smartphone_samsung_s24",
+      "url": "/images/products/samsung-galaxy-s24-ultra.jpg",
+      "alt": "Samsung Galaxy S24 Ultra",
+      "description": "Samsung Galaxy S24 Ultra avec écran Dynamic AMOLED 6.8 pouces, processeur Snapdragon 8 Gen 3, quad caméra 200MP",
+      "keywords": ["samsung", "galaxy", "smartphone", "android", "téléphone", "mobile", "snapdragon", "caméra", "200mp"]
+    },
+    {
+      "id": "laptop_macbook_air",
+      "url": "/images/products/macbook-air-m3.jpg",
+      "alt": "MacBook Air M3 13 pouces",
+      "description": "MacBook Air M3 avec écran Liquid Retina 13.6 pouces, processeur Apple M3, jusqu'à 18h d'autonomie",
+      "keywords": ["macbook", "air", "apple", "ordinateur", "portable", "laptop", "m3", "autonomie"]
+    },
+    {
+      "id": "laptop_dell_xps",
+      "url": "/images/products/dell-xps-13.jpg",
+      "alt": "Dell XPS 13 avec écran InfinityEdge",
+      "description": "Dell XPS 13 avec écran InfinityEdge 13.4 pouces, processeur Intel Core i7, design ultra-fin",
+      "keywords": ["dell", "xps", "ordinateur", "portable", "laptop", "intel", "core", "i7", "infinityedge"]
+    },
+    {
+      "id": "accessory_airpods_pro",
+      "url": "/images/products/airpods-pro-2.jpg",
+      "alt": "AirPods Pro 2ème génération",
+      "description": "AirPods Pro 2ème génération avec réduction de bruit active, autonomie 6h + 24h avec boîtier",
+      "keywords": ["airpods", "pro", "écouteurs", "apple", "bluetooth", "réduction", "bruit", "autonomie"]
+    },
+    {
+      "id": "accessory_apple_watch",
+      "url": "/images/products/apple-watch-series-9.jpg",
+      "alt": "Apple Watch Series 9",
+      "description": "Apple Watch Series 9 avec écran Always-On Retina, suivi santé avancé, résistance à l'eau",
+      "keywords": ["apple", "watch", "montre", "connectée", "santé", "fitness", "retina", "étanche"]
+    },
+    {
+      "id": "accessory_charger_wireless",
+      "url": "/images/products/wireless-charger.jpg",
+      "alt": "Chargeur sans fil universel",
+      "description": "Chargeur sans fil compatible iPhone et Android, charge rapide 15W, design élégant",
+      "keywords": ["chargeur", "sans fil", "wireless", "charge", "rapide", "universel", "15w"]
+    },
+    {
+      "id": "category_smartphones",
+      "url": "/images/categories/smartphones-collection.jpg",
+      "alt": "Collection de smartphones",
+      "description": "Notre sélection complète de smartphones : iPhone, Samsung Galaxy, et autres marques premium",
+      "keywords": ["smartphones", "téléphones", "mobiles", "collection", "sélection", "marques"]
+    },
+    {
+      "id": "category_laptops",
+      "url": "/images/categories/laptops-collection.jpg",
+      "alt": "Collection d'ordinateurs portables",
+      "description": "Gamme complète d'ordinateurs portables : MacBook, Dell XPS, et autres modèles performants",
+      "keywords": ["ordinateurs", "portables", "laptops", "macbook", "dell", "collection", "performants"]
+    },
+    {
+      "id": "category_accessories",
+      "url": "/images/categories/accessories-collection.jpg",
+      "alt": "Accessoires high-tech",
+      "description": "Large choix d'accessoires : écouteurs, montres connectées, chargeurs, et plus encore",
+      "keywords": ["accessoires", "écouteurs", "montres", "chargeurs", "high-tech", "connectés"]
+    },
+    {
+      "id": "store_interior",
+      "url": "/images/store/boutique-interieur.jpg",
+      "alt": "Intérieur de notre boutique",
+      "description": "Découvrez notre espace de vente moderne avec tous nos produits exposés",
+      "keywords": ["boutique", "magasin", "intérieur", "espace", "vente", "exposition", "moderne"]
+    },
+    {
+      "id": "support_team",
+      "url": "/images/support/equipe-support.jpg",
+      "alt": "Notre équipe de support client",
+      "description": "Notre équipe dédiée au support client, disponible pour vous aider",
+      "keywords": ["support", "équipe", "aide", "client", "service", "assistance", "disponible"]
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Simple IntentLayer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .response-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .response-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            white-space: pre-wrap;
+        }
+        .ui-raw-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f3f4;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .ui-raw-text {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+            white-space: pre-wrap;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        .loading {
+            color: #6c757d;
+            font-style: italic;
+        }
+        .session-info {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Client Simple IntentLayer</h1>
+        
+        <div class="input-section">
+            <label for="userId">ID Utilisateur:</label>
+            <input type="text" id="userId" placeholder="Entrez votre ID utilisateur" value="user123">
+        </div>
+        
+        <div class="input-section">
+            <label for="message">Votre message:</label>
+            <textarea id="message" placeholder="Tapez votre message ici..."></textarea>
+        </div>
+        
+        <button id="sendBtn" onclick="sendMessage()">Envoyer le message</button>
+        
+        <div id="sessionInfo" class="session-info" style="display: none;"></div>
+        
+        <div id="response" class="response-section" style="display: none;">
+            <div id="responseText" class="response-text"></div>
+        </div>
+        
+        <div id="uiRawResponse" class="ui-raw-section" style="display: none;">
+            <h3 style="margin-top: 0; color: #28a745;">🔧 Réponse UI (JSON brut)</h3>
+            <div id="uiRawText" class="ui-raw-text"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8000/api/v1';
+        let currentSessionId = null;
+        
+        // Fonction pour créer une session
+        async function createSession(userId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/sessions/create`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user_id: userId,
+                        user_data: {
+                            platform: 'simple-client',
+                            timestamp: new Date().toISOString()
+                        }
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.session_info) {
+                    currentSessionId = data.session_info.session_id;
+                    updateSessionInfo(data.session_info);
+                    return data.session_info;
+                } else {
+                    throw new Error(data.message || 'Erreur lors de la création de session');
+                }
+            } catch (error) {
+                console.error('Erreur création session:', error);
+                throw error;
+            }
+        }
+        
+        // Fonction pour envoyer un message
+        async function sendMessage() {
+            const userId = document.getElementById('userId').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const sendBtn = document.getElementById('sendBtn');
+            const responseDiv = document.getElementById('response');
+            const responseText = document.getElementById('responseText');
+            
+            if (!userId) {
+                alert('Veuillez entrer un ID utilisateur');
+                return;
+            }
+            
+            if (!message) {
+                alert('Veuillez entrer un message');
+                return;
+            }
+            
+            // Désactiver le bouton et afficher le loading
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Envoi en cours...';
+            responseDiv.style.display = 'block';
+            responseDiv.className = 'response-section loading';
+            responseText.textContent = 'Traitement de votre message...';
+            
+            try {
+                // Créer une session si nécessaire
+                if (!currentSessionId) {
+                    await createSession(userId);
+                }
+                
+                // Envoyer le message
+                const response = await fetch(`${API_BASE_URL}/sessions/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        session_id: currentSessionId,
+                        message: message,
+                        input_type: 'text'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Afficher la réponse
+                    responseDiv.className = 'response-section';
+                    responseText.textContent = data.response_text;
+                    
+                    // Afficher la réponse UI brute
+                    const uiRawDiv = document.getElementById('uiRawResponse');
+                    const uiRawText = document.getElementById('uiRawText');
+                    uiRawDiv.style.display = 'block';
+                    uiRawText.textContent = JSON.stringify(data, null, 2);
+                    
+                    // Mettre à jour les infos de session
+                    if (data.session_info) {
+                        updateSessionInfo(data.session_info);
+                    }
+                    
+                    // Vider le champ de message
+                    document.getElementById('message').value = '';
+                    
+                } else {
+                    throw new Error(data.message || 'Erreur lors du traitement du message');
+                }
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                responseDiv.className = 'response-section error';
+                responseText.textContent = `Erreur: ${error.message}`;
+                
+                // Masquer la section UI brute en cas d'erreur
+                document.getElementById('uiRawResponse').style.display = 'none';
+            } finally {
+                // Réactiver le bouton
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Envoyer le message';
+            }
+        }
+        
+        // Fonction pour mettre à jour les infos de session
+        function updateSessionInfo(sessionInfo) {
+            const sessionInfoDiv = document.getElementById('sessionInfo');
+            sessionInfoDiv.style.display = 'block';
+            sessionInfoDiv.innerHTML = `
+                <strong>Session active:</strong> ${sessionInfo.session_id.substring(0, 8)}...<br>
+                <strong>Interactions:</strong> ${sessionInfo.interaction_count}<br>
+                <strong>Dernière activité:</strong> ${new Date(sessionInfo.last_activity).toLocaleString()}
+            `;
+        }
+        
+        // Permettre l'envoi avec Entrée (Ctrl+Entrée)
+        document.getElementById('message').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.ctrlKey) {
+                sendMessage();
+            }
+        });
+        
+        // Focus sur le champ message au chargement
+        window.onload = function() {
+            document.getElementById('message').focus();
+        };
+    </script>
+</body>
+</html>

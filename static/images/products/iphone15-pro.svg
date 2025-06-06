@@ -1,0 +1,60 @@
+<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- iPhone 15 Pro illustration -->
+  <defs>
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0C0C0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Phone body -->
+  <rect x="50" y="50" width="200" height="300" rx="25" ry="25" fill="url(#phoneGradient)" stroke="#999" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="65" y="80" width="170" height="240" rx="15" ry="15" fill="url(#screenGradient)"/>
+  
+  <!-- Dynamic Island -->
+  <ellipse cx="150" cy="100" rx="25" ry="8" fill="#000"/>
+  
+  <!-- Camera system (triple camera) -->
+  <g transform="translate(70, 60)">
+    <!-- Camera module background -->
+    <rect x="0" y="0" width="50" height="50" rx="10" ry="10" fill="#333" opacity="0.8"/>
+    
+    <!-- Main camera -->
+    <circle cx="15" cy="15" r="8" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+    <circle cx="15" cy="15" r="5" fill="#000"/>
+    
+    <!-- Ultra wide camera -->
+    <circle cx="35" cy="15" r="6" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+    <circle cx="35" cy="15" r="3" fill="#000"/>
+    
+    <!-- Telephoto camera -->
+    <circle cx="25" cy="35" r="6" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+    <circle cx="25" cy="35" r="3" fill="#000"/>
+    
+    <!-- Flash -->
+    <circle cx="10" cy="35" r="3" fill="#FFE135"/>
+  </g>
+  
+  <!-- Home indicator -->
+  <rect x="130" y="340" width="40" height="3" rx="2" ry="2" fill="#666"/>
+  
+  <!-- Side buttons -->
+  <rect x="45" y="120" width="3" height="20" rx="2" ry="2" fill="#999"/>
+  <rect x="45" y="150" width="3" height="30" rx="2" ry="2" fill="#999"/>
+  <rect x="252" y="140" width="3" height="40" rx="2" ry="2" fill="#999"/>
+  
+  <!-- Apple logo -->
+  <g transform="translate(140, 200) scale(0.8)">
+    <path d="M12.5 2C8.5 2 5.5 5 5.5 9c0 2.5 1.2 4.7 3 6.1-.2-.8-.3-1.7-.3-2.6 0-3.3 2.7-6 6-6s6 2.7 6 6c0 .9-.1 1.8-.3 2.6 1.8-1.4 3-3.6 3-6.1 0-4-3-7-7-7z" fill="#666" opacity="0.6"/>
+  </g>
+  
+  <!-- Product label -->
+  <text x="150" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">iPhone 15 Pro</text>
+  <text x="150" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Titane Naturel</text>
+</svg>
